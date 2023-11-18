@@ -1,14 +1,12 @@
 server:
   port: 7777
 
-
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka
 spring:
   application:
     name: eureka-server
-
-
-

@@ -11,6 +11,13 @@ spring:
             baseMessage: Hello Spring Global Filter
             preLogger: true
             postLogger: true
+      routes:
+        - id: user-service
+          predicates:
+            - Path=/user-service/**
+          uri: lb://USER-SERVICE
+          filters:
+            - name: CustomFilter
 
 eureka:
   client:
