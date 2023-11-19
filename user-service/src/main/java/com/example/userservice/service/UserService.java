@@ -15,11 +15,11 @@ public class UserService {
     }
 
 
-    public void createUser(RequestUser requestUser){
+    public User createUser(RequestUser requestUser){
 
         User user = new User(requestUser.getEmail(), requestUser.getName(), requestUser.getPassword());
 
-        userRepository.save(user);
+        return userRepository.save(user);
     }
 
     public User getUserByEmail(String email) {

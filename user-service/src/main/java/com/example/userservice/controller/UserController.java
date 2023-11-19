@@ -40,9 +40,9 @@ public class UserController {
     public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser requestUser) {
 
 
-        userService.createUser(requestUser);
+        User user = userService.createUser(requestUser);
 
-        ResponseUser responseUser = new ResponseUser(requestUser);
+        ResponseUser responseUser = new ResponseUser(user);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)

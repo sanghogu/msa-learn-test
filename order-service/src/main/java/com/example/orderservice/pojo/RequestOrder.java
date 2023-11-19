@@ -27,11 +27,4 @@ public class RequestOrder {
     @Min(value = 1, message = "아이템 최소 1개 이상 필요함")
     private List<RequestOrderItem> orderItems;
 
-    public RequestOrder(Order order) {
-        this.identityName = order.getIdentityName();
-        this.buyerName = order.getBuyerName();
-        this.userId = order.getUserId();
-    }
-
-
 }

@@ -2,19 +2,24 @@ POST http://localhost:8080/order-service/orders
 Content-Type: application/json
 
 {
-  "identityName": "#1022",
+  "identityName": "#1042",
   "buyerName": "cyj",
   "userId": 1,
   "orderItems": [
     {
       "name": "products",
       "unitPrice": 1.1,
-      "qty": 1
+      "qty": 1,
+      "productId": 1
     }
   ]
 }
 
 ###
 
-GET http://localhost:8080/order-service/orders/%231019
+GET http://localhost:8080/order-service/orders/%231042
+Content-Type: application/json
+
+###
+GET http://localhost:8080/order-service/orders
 Content-Type: application/json

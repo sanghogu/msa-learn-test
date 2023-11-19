@@ -23,7 +23,7 @@ public class OrderService {
 
 
     @Transactional
-    public void createOrder(RequestOrder requestOrder){
+    public Order createOrder(RequestOrder requestOrder){
 
         Order order = new Order(requestOrder.getIdentityName(), requestOrder.getBuyerName(), requestOrder.getUserId());
 
@@ -34,8 +34,12 @@ public class OrderService {
                 .toList();
 
         orderRepository.save(order);
+
+        order.setOrderItems(orderItems);
+
         orderItemRepository.saveAll(orderItems);
 
+        return order;
     }
 
     public Order findByIdentityName(String identityName) {

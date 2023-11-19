@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class ResponseProduct {
 
+    private Long id;
     private String name;
     private int availableQty;
     private double unitPrice;
@@ -16,6 +17,7 @@ public class ResponseProduct {
 
 
     public ResponseProduct(Product product) {
+        this.id = product.getId();
         this.name = product.getName();
         this.availableQty = product.getAvailableQty();
         this.unitPrice = product.getUnitPrice();
