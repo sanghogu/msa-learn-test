@@ -19,6 +19,19 @@ spring:
           filters:
             - name: CustomFilter
 
+        - id: product-service
+          predicates:
+            - Path=/product-service/**
+          uri: lb://PRODUCT-SERVICE
+          filters:
+            - name: CustomFilter
+
+        - id: order-service
+          predicates:
+            - Path=/order-service/**
+          uri: lb://ORDER-SERVICE
+          filters:
+            - name: CustomFilter
 eureka:
   client:
     register-with-eureka: true

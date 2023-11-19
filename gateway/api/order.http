@@ -1,0 +1,20 @@
+POST http://localhost:8080/order-service/orders
+Content-Type: application/json
+
+{
+  "identityName": "#1022",
+  "buyerName": "cyj",
+  "userId": 1,
+  "orderItems": [
+    {
+      "name": "products",
+      "unitPrice": 1.1,
+      "qty": 1
+    }
+  ]
+}
+
+###
+
+GET http://localhost:8080/order-service/orders/%231019
+Content-Type: application/json

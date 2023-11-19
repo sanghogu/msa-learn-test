@@ -1,0 +1,13 @@
+POST http://localhost:8080/product-service/products
+Content-Type: application/json
+
+{
+  "name": "Test-Namecardd",
+  "unitPrice": "1.111",
+  "availableQty": 1,
+  "userId": 1
+}
+
+###
+GET http://localhost:8080/product-service/products/Test-Namecard
+Content-Type: application/json

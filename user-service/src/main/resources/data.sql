@@ -1,0 +1,1 @@
+insert into users (id, created_at, email, name, password) values (1, now(), 'sanghogu@naver.com', 'cyj', 'password');
