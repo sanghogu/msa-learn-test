@@ -11,7 +11,7 @@ spring:
     username: sa
 
   application:
-    name: user-service
+    name: order-service
   jpa:
     generate-ddl: false
     hibernate:
@@ -32,6 +32,6 @@ eureka:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 greeting:
-  welcome: Welcome
+  welcome: Welcome Order
 server:
   port: 0
