@@ -61,6 +61,9 @@ public class UserController {
     public ResponseEntity<ResponseUser> getUsers(@PathVariable String email) {
 
         User user = userService.getUserByEmail(email);
+        if(user == null) {
+            return ResponseEntity.notFound().build();
+        }
 
         ResponseUser responseUser = new ResponseUser(user);
 

@@ -1,0 +1,4 @@
+GET {{url}}/user-service/users
+
+###
+GET {{url}}/user-service/users/sanghogu@naver.co

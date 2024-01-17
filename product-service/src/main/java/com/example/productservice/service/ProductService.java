@@ -2,6 +2,7 @@ package com.example.productservice.service;
 
 import com.example.productservice.entity.Product;
 import com.example.productservice.pojo.RequestProduct;
+import com.example.productservice.pojo.RequestUpdateProduct;
 import com.example.productservice.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +23,17 @@ public class ProductService {
 
     }
 
-    public Product findByTitle(String name) {
-        return productRepository.findByName(name);
-    }
-
     public Iterable<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    public Product findById(Long productId) {
+        return productRepository.findById(productId)
+                .orElse(null);
+    }
+
+    public Product updateProductById(RequestUpdateProduct requestUpdateProduct, Long id) {
+        Product product = productRepository.getReferenceById(id);
+        return product;
     }
 }

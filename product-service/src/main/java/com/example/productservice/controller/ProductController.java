@@ -2,6 +2,7 @@ package com.example.productservice.controller;
 
 import com.example.productservice.entity.Product;
 import com.example.productservice.pojo.RequestProduct;
+import com.example.productservice.pojo.RequestUpdateProduct;
 import com.example.productservice.pojo.ResponseProduct;
 import com.example.productservice.service.ProductService;
 import jakarta.validation.Valid;
@@ -70,17 +71,6 @@ public class ProductController {
         return greetingMessage;
     }
 
-    @GetMapping("/products/{name}")
-    @ResponseBody
-    public ResponseEntity<ResponseProduct> getProduct(@PathVariable String name) {
-
-        var product = productService.findByTitle(name);
-
-        ResponseProduct responseProduct = product == null ? null : new ResponseProduct(product);
-
-        return ResponseEntity.ok(responseProduct);
-    }
-
     @GetMapping("/products")
     @ResponseBody
     public ResponseEntity<List<ResponseProduct>> getProducts(){
@@ -93,6 +83,31 @@ public class ProductController {
                 .toList();
 
         return ResponseEntity.ok(responseProducts);
+    }
+
+    @GetMapping("/products/{id}")
+    @ResponseBody
+    public ResponseEntity<ResponseProduct> getProduct(@PathVariable Long id) {
+
+        var product = productService.findById(id);
+
+        ResponseProduct responseProduct = product == null ? null : new ResponseProduct(product);
+
+        return ResponseEntity.ok(responseProduct);
+    }
+
+    @PutMapping("/products/{id}")
+    @ResponseBody
+    public ResponseEntity<ResponseProduct> updateProduct(@PathVariable Long id, @RequestBody RequestUpdateProduct requestUpdateProduct) {
+
+        if(requestUpdateProduct.getPlusQty() != null || requestUpdateProduct.getName() != null) {
+            Product product = productService.updateProductById(requestUpdateProduct, id);
+
+            return ResponseEntity.ok(new ResponseProduct(product));
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
 }
